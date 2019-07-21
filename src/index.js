@@ -10,15 +10,27 @@ class App extends React.Component{
     constructor(){
         super()
         this.state={
-            news : JSON
+            news : JSON,
+            filt:[]
         } 
+    }
+    getKeyword = (e)=>{
+        //console.log(e.target.value)
+        let searchWord = e.target.value
+        let filt = this.state.news.filter((item)=>{
+            return item.title.indexOf(searchWord)>-1
+        });
+        this.setState({
+            filt:filt
+        })
+        //console.log(filt)
     }
     render(){
         //console.log(this.state.news)
         return(
             <div>
-                <Header/>
-                <NewsList newsProp={this.state.news} />
+                <Header keyword={this.getKeyword} />
+                <NewsList newsProp={this.state.filt.length === 0 ? this.state.news:this.state.filt} />
             </div>
         )
     }

@@ -1,13 +1,18 @@
 import React from 'react';
 
 class Header extends React.Component{
-
-    state={
-        keywords : 'defalut State'
+    constructor(){
+        super()
+        this.state={
+            keywords : 'defalut State'
+        }
     }
+    
 
-    inputChangeHandler(e){
-        console.log(e.target.value)
+    inputChangeHandler= (e)=>{
+        this.setState({
+            keywords:e.target.value
+        })
     }
 
     render(){

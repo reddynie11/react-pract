@@ -1,19 +1,10 @@
 import React from 'react';
+import NewsItem from './news_list_item';
 
-// class NewsList extends React.Component{
-//     render(){
-//         return(
-//             <div>News List</div>
-//         )
-//     }
-// }
 const NewsList = (props)=>{
     const items = props.newsProp.map((item)=>{
         return(
-            <div>
-                <h3>{item.title}</h3>
-                <div>{item.feed}</div>
-            </div>
+            <NewsItem key={item.id} itemProp={item}/>
         )
     })
     

@@ -16,7 +16,6 @@ class Header extends React.Component{
     }
 
     render(){
-        console.log(this.state.keywords);
         return(
             <header>
                 <div onClick={()=>{console.log('Click')}}  >Logo</div>
